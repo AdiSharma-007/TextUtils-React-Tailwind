@@ -46,7 +46,7 @@ export default function Navbar(props) {
             onClick={props.handleToggle}
             className={`relative w-20 h-7 rounded-full transition-colors duration-300 flex items-center `}
             style={{
-              backgroundColor: props.mode==="dark" ? "#374151" : "#ffffff", // gray-700 : white
+              backgroundColor: props.mode==="dark" ? "#374151" : "#ffffff", 
               boxShadow:
                 "inset 2px 2px 2px #babecc, inset -2px -2px 2px #ffffff",
             }}
@@ -55,8 +55,8 @@ export default function Navbar(props) {
             <div
               className={`absolute top-1 w-6 h-5 rounded-full shadow-md transform transition-transform duration-300`}
               style={{
-                backgroundColor: props.mode==="dark" ? "#facc15" : "#d4eafa", // yellow-400 : custom blue
-                transform: props.mode==="dark" ? "translateX(48px)" : "translateX(4px)", // moves knob
+                backgroundColor: props.mode==="dark" ? "#facc15" : "#d4eafa", 
+                transform: props.mode==="dark" ? "translateX(48px)" : "translateX(4px)", 
               }}
             ></div>
 
@@ -110,7 +110,7 @@ export default function Navbar(props) {
               onClick={props.handleToggle}
               className={`relative w-20 h-7 rounded-full transition-colors duration-300 flex items-center mt-4`}
               style={{
-                backgroundColor: props.mode==="dark" ? "#374151" : "#ffffff", // gray-700 : white
+                backgroundColor: props.mode==="dark" ? "#374151" : "#ffffff", 
                 boxShadow:
                   "inset 2px 2px 2px #babecc, inset -2px -2px 2px #ffffff",
               }}
@@ -119,8 +119,8 @@ export default function Navbar(props) {
               <div
                 className={`absolute top-1 w-6 h-5 rounded-full shadow-md transform transition-transform duration-300`}
                 style={{
-                  backgroundColor: props.mode==="dark" ? "#facc15" : "#d4eafa", // yellow-400 : custom blue
-                  transform: props.mode==="dark" ? "translateX(48px)" : "translateX(4px)", // moves knob
+                  backgroundColor: props.mode==="dark" ? "#facc15" : "#d4eafa", 
+                  transform: props.mode==="dark" ? "translateX(48px)" : "translateX(4px)", 
                 }}
               ></div>
 
