@@ -1,11 +1,12 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useRef } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
 
+  const utteranceRef = useRef(null);
     useEffect(() => {
     return () => {
-      speechSynthesis.cancel();
+      window.speechSynthesis.cancel();
     };
   }, []);
 
@@ -22,14 +23,17 @@ export default function TextForm(props) {
 
   const handleListen = () => {
     if (text.trim()==="") {
-       speechSynthesis.cancel();
+       window.speechSynthesis.cancel();
       alert("Please enter some text first!");
       return;
     }
 
-     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-US"; // change language from here
-    speechSynthesis.speak(utterance);
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US"; // change language from here
+
+    utteranceRef.current = speech;
+
+    window.speechSynthesis.speak(speech);
     props.handleAlert("warning ", " Speaking Started !");
   };
 
@@ -49,7 +53,7 @@ export default function TextForm(props) {
     let newText = "";
     setText(newText);
     props.handleAlert("info ", " Text is cleared !");
-    speechSynthesis.cancel();
+    window.speechSynthesis.cancel();
   };
 
   const handleOnchange = (event) => {
