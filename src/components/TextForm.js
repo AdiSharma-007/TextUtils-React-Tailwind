@@ -27,9 +27,9 @@ export default function TextForm(props) {
       return;
     }
 
-    const speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "en-US"; // change language from here
-    window.speechSynthesis.speak(speech);
+     const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US"; // change language from here
+    speechSynthesis.speak(utterance);
     props.handleAlert("warning ", " Speaking Started !");
   };
 
