@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
+
+    useEffect(() => {
+    return () => {
+      speechSynthesis.cancel();
+    };
+  }, []);
 
   const handleUpclick = () => {
     let newText = text.toUpperCase();
@@ -15,12 +21,13 @@ export default function TextForm(props) {
   };
 
   const handleListen = () => {
-    if (!text.trim()) {
+    if (text.trim()==="") {
+       speechSynthesis.cancel();
       alert("Please enter some text first!");
       return;
     }
 
-    let speech = new SpeechSynthesisUtterance(text);
+    const speech = new SpeechSynthesisUtterance(text);
     speech.lang = "en-US"; // change language from here
     window.speechSynthesis.speak(speech);
     props.handleAlert("warning ", " Speaking Started !");
@@ -42,6 +49,7 @@ export default function TextForm(props) {
     let newText = "";
     setText(newText);
     props.handleAlert("info ", " Text is cleared !");
+    speechSynthesis.cancel();
   };
 
   const handleOnchange = (event) => {
